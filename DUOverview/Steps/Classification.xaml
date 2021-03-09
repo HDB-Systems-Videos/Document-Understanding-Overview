@@ -1,0 +1,139 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Classification" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:p="http://schemas.uipath.com/workflow/activities/document-processing-contracts/taxonomy" xmlns:p1="http://schemas.uipath.com/workflow/activities/document-processing-contracts/results" xmlns:p2="http://schemas.uipath.com/workflow/activities/document-processing-contracts/dom" xmlns:p3="http://schemas.uipath.com/workflow/activities/intelligentocr/classification" xmlns:p4="http://schemas.uipath.com/workflow/activities/document-processing-contracts/classification" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:this="clr-namespace:" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_File" Type="InArgument(x:String)" />
+    <x:Property Name="in_Taxonomy" Type="InArgument(p:DocumentTaxonomy)" />
+    <x:Property Name="in_Text" Type="InArgument(x:String)" />
+    <x:Property Name="out_ClassificationResults" Type="OutArgument(p1:ClassificationResult[])" />
+    <x:Property Name="in_Dom" Type="InArgument(p2:Document)" />
+    <x:Property Name="in_ApiKey" Type="InArgument(x:String)" />
+  </x:Members>
+  <this:Classification.in_File>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Classification.in_File>
+  <this:Classification.in_Taxonomy>
+    <InArgument x:TypeArguments="p:DocumentTaxonomy" />
+  </this:Classification.in_Taxonomy>
+  <this:Classification.in_Text>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Classification.in_Text>
+  <this:Classification.in_Dom>
+    <InArgument x:TypeArguments="p2:Document" />
+  </this:Classification.in_Dom>
+  <this:Classification.in_ApiKey>
+    <InArgument x:TypeArguments="x:String" />
+  </this:Classification.in_ApiKey>
+  <mva:VisualBasic.Settings>
+    <x:Null />
+  </mva:VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>719,918</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>Classification_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="60">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Dom</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Taxonomy</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Results</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts.Classification</x:String>
+      <x:String>UiPath.DocumentProcessing.Contracts</x:String>
+      <x:String>UiPath.IntelligentOCR.Activities.DocumentClassification</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.DocumentUnderstanding.ML.Activities</x:String>
+      <x:String>UiPath.DocumentUnderstanding.ML.Activities.Editors</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="38">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentProcessing.Contracts</AssemblyReference>
+      <AssemblyReference>UiPath.IntelligentOCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Persistence.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.DocumentUnderstanding.ML.Activities</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Classification" sap:VirtualizedContainerService.HintSize="520,753" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="478,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Classifying document &lt;&quot; + Path.GetFileName(in_File) + &quot;&gt;&quot;]" />
+    <p3:ClassifyDocumentScope ClassificationResults="[out_ClassificationResults]" DisplayName="Classify Document Scope" DocumentObjectModel="[in_Dom]" DocumentPath="[in_File]" DocumentText="[in_Text]" sap:VirtualizedContainerService.HintSize="478,530" sap2010:WorkflowViewState.IdRef="ClassifyDocumentScope_1" Taxonomy="[in_Taxonomy]" TaxonomyConfiguration="{}{&quot;TaxonomyMappings&quot;:{&quot;UI6d9b637612f4478497baaf2f4eb99266&quot;:{&quot;DocumentTypeMappings&quot;:{&quot;Contas.Gás.CEG&quot;:{&quot;OriginalDocumentTypeId&quot;:&quot;Contas.Gás.CEG&quot;,&quot;ClassifierDocumentTypeId&quot;:null,&quot;IsDocumentTypeIdMapped&quot;:true},&quot;Contas.Luz.Light&quot;:{&quot;OriginalDocumentTypeId&quot;:&quot;Contas.Luz.Light&quot;,&quot;ClassifierDocumentTypeId&quot;:null,&quot;IsDocumentTypeIdMapped&quot;:true},&quot;Contas.Telefone.Claro&quot;:{&quot;OriginalDocumentTypeId&quot;:&quot;Contas.Telefone.Claro&quot;,&quot;ClassifierDocumentTypeId&quot;:null,&quot;IsDocumentTypeIdMapped&quot;:true},&quot;Contas.Televisão.Net&quot;:{&quot;OriginalDocumentTypeId&quot;:&quot;Contas.Televisão.Net&quot;,&quot;ClassifierDocumentTypeId&quot;:null,&quot;IsDocumentTypeIdMapped&quot;:true}}}},&quot;ClassifierMinimumConfidence&quot;:{&quot;UI6d9b637612f4478497baaf2f4eb99266&quot;:&quot;0&quot;},&quot;DocumentTypesByPersistenceId&quot;:{&quot;UI6d9b637612f4478497baaf2f4eb99266&quot;:[]}}">
+      <p3:ClassifyDocumentScope.Classifiers>
+        <p3:IntelligentKeywordClassifier LearningData="{x:Null}" ApiKey="[in_ApiKey]" DisplayName="Intelligent Keyword Classifier" Endpoint="https://du.uipath.com/svc/intelligentkeywords?edition=community" sap:VirtualizedContainerService.HintSize="234,209" sap2010:WorkflowViewState.IdRef="IntelligentKeywordClassifier_2" LearningFilePath="DocumentProcessing\intelligentKeyword.json" PersistenceId="UI6d9b637612f4478497baaf2f4eb99266">
+          <p3:IntelligentKeywordClassifier.ClassifierResult>
+            <OutArgument x:TypeArguments="p4:ClassifierResult">
+              <DelegateArgumentReference x:TypeArguments="p4:ClassifierResult">
+                <DelegateOutArgument x:TypeArguments="p4:ClassifierResult" Name="ClassificationResult" />
+              </DelegateArgumentReference>
+            </OutArgument>
+          </p3:IntelligentKeywordClassifier.ClassifierResult>
+          <p3:IntelligentKeywordClassifier.DocumentObjectModel>
+            <InArgument x:TypeArguments="p2:Document">
+              <DelegateArgumentValue x:TypeArguments="p2:Document">
+                <DelegateInArgument x:TypeArguments="p2:Document" Name="DocumentObjectModel" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p3:IntelligentKeywordClassifier.DocumentObjectModel>
+          <p3:IntelligentKeywordClassifier.DocumentPath>
+            <InArgument x:TypeArguments="x:String">
+              <DelegateArgumentValue x:TypeArguments="x:String">
+                <DelegateInArgument x:TypeArguments="x:String" Name="DocumentPath" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p3:IntelligentKeywordClassifier.DocumentPath>
+          <p3:IntelligentKeywordClassifier.DocumentText>
+            <InArgument x:TypeArguments="x:String">
+              <DelegateArgumentValue x:TypeArguments="x:String">
+                <DelegateInArgument x:TypeArguments="x:String" Name="DocumentText" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p3:IntelligentKeywordClassifier.DocumentText>
+          <p3:IntelligentKeywordClassifier.DocumentTypes>
+            <InArgument x:TypeArguments="p4:ClassifierDocumentType[]">
+              <DelegateArgumentValue x:TypeArguments="p4:ClassifierDocumentType[]">
+                <DelegateInArgument x:TypeArguments="p4:ClassifierDocumentType[]" Name="DocumentTypes" />
+              </DelegateArgumentValue>
+            </InArgument>
+          </p3:IntelligentKeywordClassifier.DocumentTypes>
+        </p3:IntelligentKeywordClassifier>
+      </p3:ClassifyDocumentScope.Classifiers>
+    </p3:ClassifyDocumentScope>
+  </Sequence>
+</Activity>
